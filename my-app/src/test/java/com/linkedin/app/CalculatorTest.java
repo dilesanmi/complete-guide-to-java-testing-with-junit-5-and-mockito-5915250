@@ -40,11 +40,11 @@ public class CalculatorTest {
   @Test
   public void divideByZero() {
     Integer result = null;
-    try {
-      result = underTest.divide(6, 0);
-    } catch (IllegalArgumentException e) {
-      // Division by zero occurred
-    }
+
+    assertThrows(IllegalArgumentException.class, () ->{
+     underTest.divide(6, 0) ;
+    });
+    
     assertNull(result, "Division by zero should result in null");
   }
 
